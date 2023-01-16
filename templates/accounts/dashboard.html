@@ -1,0 +1,49 @@
+x{% extends 'base.html' %}
+{% block title %}
+| User Dashboard
+{% endblock %}
+{% block content %}
+<section id="showcase-inner" class="pt-5 pb-2 text-dark">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1 class="display-4">User Profile</h1>
+          <p class="lead">Manage your account</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-1">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'index' %}">
+              <i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="breadcrumb-item active"> Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+    <!-- Alerts -->
+    <br>
+    {% include 'partials/_alerts.html' %}
+
+  <section id="dashboard" class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Welcome {{ user.username }}</h2>
+            <a href="{% url 'update' %}">
+              <button class="btn-dark btn-block btn-lg my-3" >Update your Profile</button>
+            </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

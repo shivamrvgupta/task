@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}
+| Register Account
+{% endblock %}
+{% block content %}
+<section id="register" class="bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card">
+            <div class="card-header bg-dark text-white">
+              <h4>
+                <i class="fas fa-user-plus"></i> Register</h4>
+            </div>
+            <div class="card-body">
+              <!-- Alerts -->
+              {% include 'partials/_alerts.html' %}
+                <form action="{% url 'register' %}" method="POST">
+                  {%  csrf_token %}
+                  {{ form }}
+                <input type="submit" value="Register" class="btn btn-secondary btn-block">
+                <div class="border-top pt-3">
+                  <small class="text-muted">
+                      Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+                  </small>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
